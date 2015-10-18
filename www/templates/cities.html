@@ -1,0 +1,16 @@
+<ion-view view-title="Cidades">
+	<ion-content class="padding">
+		<ion-list show-delete="true">
+			<ion-item ng-repeat="city in cities">
+			    {{ city }}
+			    <ion-delete-button class="ion-minus-circled" ng-click="deleteCity($index)"></ion-delete-button>
+			</ion-item>
+		</ion-list>
+		<div class="item item-input-inset">
+		    <label class="item-input-wrapper">
+		      <input type="text" placeholder="Cidade" ng-model="newCity">
+		    </label>
+		    <button class="button button-small button-positive" ng-click="addCity(newCity)">+</button>
+		</div>
+	</ion-content>
+</ion-view>

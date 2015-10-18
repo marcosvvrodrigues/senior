@@ -1,0 +1,45 @@
+<ion-view view-title="{{city}}">
+	<ion-nav-bar class="bar-stable">
+		<!-- Remove back button -->
+	</ion-nav-bar>
+	<ion-nav-title>
+    	<h1 class="title" ng-click="editCities()">{{city}}</h1>
+    </ion-nav-title>
+	<ion-content class="padding" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()">
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<div class="item text-center item-text-wrap" ng-if="now">
+						<div class="date">{{ now.data_hora }}</div>
+						<div class="weather">
+							<div class="image"><img ng-src="{{now.imagem}}" /></div>
+							<div class="degrees">{{now.temperatura}}°</div>
+						</div>
+						<div class="description">{{now.descricao}}</div>
+					</div>
+
+					<div class="item text-center item-text-wrap" ng-if="loaded && !now">
+						Indisponível
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row secondary-weather">
+		  <div class="col" ng-repeat="day in days">
+		  	<div class="card">
+			  <div class="item item-text-wrap">
+			    <div class="weather">
+			    	<div class="date">{{ day.data | date: 'EEE' }}</div>
+			    	<div class="image"><img ng-src="{{day.imagem}}" /></div>
+			    </div>
+			    <div class="degrees">
+			    	<div class="max">{{ day.temperatura_max }}°</div>
+			    	<div class="min">/{{ day.temperatura_min }}°</div>
+			    </div>
+			  </div>
+			</div>
+		  </div>
+		  
+		</div>
+	</ion-content>
+</ion-view>
